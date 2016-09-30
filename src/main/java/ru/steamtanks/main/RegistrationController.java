@@ -45,8 +45,8 @@ public class RegistrationController {
         accauntService.addUser(login, password, email);
 
         httpSession.setAttribute("username", login);
-        System.out.println(httpSession.getAttribute("username"));
-        System.out.println(httpSession.getId());
+        //System.out.println(httpSession.getAttribute("username"));
+        //System.out.println(httpSession.getId());
 
         return ResponseEntity.status(HttpStatus.OK).body("{}");
     }
@@ -54,8 +54,8 @@ public class RegistrationController {
     @RequestMapping(path = "/api/user", method = RequestMethod.DELETE)
     public ResponseEntity userDel() {
         String login = (String) httpSession.getAttribute("username");
-        System.out.println(httpSession.getAttribute("username"));
-        System.out.println(httpSession.getId());
+        //System.out.println(httpSession.getAttribute("username"));
+        //System.out.println(httpSession.getId());
 
         if (StringUtils.isEmpty(login))
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{}");
@@ -89,8 +89,8 @@ public class RegistrationController {
     @RequestMapping(path = "/api/session", method = RequestMethod.GET)
     public ResponseEntity sessionGet() {
 
-        System.out.println(httpSession.getAttribute("username"));
-        System.out.println(httpSession.getId());
+        //System.out.println(httpSession.getAttribute("username"));
+        //System.out.println(httpSession.getId());
 
         final UserProfile existingUser = accauntService.getUser((String) httpSession.getAttribute("username"));
         if (existingUser==null)
@@ -126,7 +126,7 @@ public class RegistrationController {
     @RequestMapping(path = "/api/session", method = RequestMethod.DELETE)
     public ResponseEntity sessionDel() {
         String login = (String) httpSession.getAttribute("username");
-        System.out.println(login+" "+httpSession.getAttribute("username")+" "+httpSession.getId());
+        //System.out.println(login+" "+httpSession.getAttribute("username")+" "+httpSession.getId());
 
         if (StringUtils.isEmpty(login))
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{}");
