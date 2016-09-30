@@ -126,11 +126,12 @@ public class RegistrationController {
     @RequestMapping(path = "/api/session", method = RequestMethod.DELETE)
     public ResponseEntity sessionDel() {
         String login = (String) httpSession.getAttribute("username");
+        System.out.println(login+" "+httpSession.getAttribute("username")+" "+httpSession.getId());
 
         if (StringUtils.isEmpty(login))
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{}");
 
-        httpSession.invalidate();
+        httpSession.setAttribute("username", null);
 
         return ResponseEntity.status(HttpStatus.OK).body("{}");
     }
