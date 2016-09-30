@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(/*origins = "http://localhost:3000"*/)
 public class RegistrationController {
 
     final private AccauntService accauntService;
